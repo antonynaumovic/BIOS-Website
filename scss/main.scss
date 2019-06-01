@@ -35,73 +35,49 @@ body{
 }
 
 .container{
-    position: fixed;
+    width: 100%;
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
+    h1{
+        
+        width: 100%;
+        transform: translate(25%);
+    }
+    h2{
+        width: 100%;
+        transform: translate(25%);
+    }
 }
 
-.output {
-    text-align:center;
-    font-variant: small-caps;
-    font-family: 'Open Sans', sans-serif;
-    letter-spacing: 0.3em;
-    color:white;
-    h1 {
-      font-size:4vw;
-    }
+h1,h2 {
+    color: #fff;
+    letter-spacing: 0.2rem;
+    font-weight: 200;
+    margin: 0.4em 0;
   }
-  
-  /* Cursor Styling */
-  
-  .cursor::after {
-    content:'';
-    display:inline-block;
-    margin-left:3px;
-    background-color:white;
-    animation-name:blink;
-    animation-duration:0.5s;
-    animation-iteration-count: infinite;
-  }
-  h1.cursor::after {
-    height:24px;
-    width:13px;
-  }
-  p.cursor::after {
-    height:13px;
-    width:6px;
-  }
-  
-  @keyframes blink {
-    0% {
-      opacity:1;
-    }
-    49% {
-      opacity:1;
-    }
-    50% {
-      opacity:0;
-    }
-    100% {
-      opacity:0;
-    }
+  h1 { font-size: 3vw; }
+  h2 {
+    color: #fff;
+    font-size: 2em;
   }
 
 .centered {
     position: fixed;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
     top: 50%;
-    left: 50%;
+    left: 50%;    
     transform: translate(-50%, -50%);
-    
-    img{
-        width: 100%;
-    }
   }
+  .biosLogo{
+      width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
 
 @-webkit-keyframes GradientFade {
     0%{background-position:22% 0%}
@@ -144,4 +120,24 @@ body{
 a {
 	color: #fff;
 	text-decoration: none;
+}
+
+
+.icons{
+    position: fixed;
+    align-content: center;
+    margin-top: 1rem;
+    padding: 10px;
+    bottom:0;
+    a{
+        padding: 0.4rem;
+
+        &:hover{
+            color:$secondary-color;
+        }
+    }
+    .icon{
+        width: 3rem;
+        align-content: center;
+    }
 }
