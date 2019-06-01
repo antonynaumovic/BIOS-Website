@@ -1,0 +1,24 @@
+{
+  "name": "bios",
+  "version": "1.0.0",
+  "description": "bios website",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonynaumovic/BIOS-Website.git"
+  },
+  "author": "Antony Naumovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antonynaumovic/BIOS-Website/issues"
+  },
+  "homepage": "https://github.com/antonynaumovic/BIOS-Website#readme",
+  "dependencies": {
+    "gh-pages": "^2.0.1",
+    "node-sass": "^4.12.0"
+  }
+}
