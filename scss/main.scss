@@ -7,6 +7,10 @@ $secondary-color: rgb(255, 102, 0);
     format('truetype');
 }
 
+@mixin easeOut {
+    transition: all 0.3s ease-out;
+}
+
 body{
     font-variant: small-caps;
     font-family: 'Open Sans', sans-serif;
@@ -33,6 +37,7 @@ body{
         animation: GradientFade 140s ease infinite;
     }
 }
+
 
 .container{
     width: 100%;
@@ -141,3 +146,128 @@ a {
         align-content: center;
     }
 }
+
+
+.menu-btn{
+    position: absolute;
+    z-index: 3;
+    right: 35px;
+    top: 35px;
+    cursor: pointer;
+    @include easeOut();
+
+
+    .btn-line{
+        width: 28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background: set-text-color($primary-color);
+        @include easeOut();
+    }
+
+    //Rotation X
+    &.close{
+        transform: rotate(180deg);
+
+        .btn-line{
+            //1-Rotate
+            &:nth-child(1){
+                transform: rotate(45deg) translate(5px, 5px); 
+            }
+            //2-Hide
+            &:nth-child(2){
+                opacity: 0;
+            }
+            //3-Rotate
+            &:nth-child(3){
+                transform: rotate(-45deg) translate(6.5px, -6px); 
+            }
+        }
+    }
+}
+
+.menu{
+    position: fixed;
+    top:0;
+    width: 100%;
+    visibility: hidden;
+
+    &.show{
+        visibility: visible;
+    }
+
+    &-branding, &-nav{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+
+    }
+
+    &-nav{
+        margin: 0;
+        padding: 0;
+        background: rgba(darken($primary-color, 5), 0.8);
+        list-style: none;
+        transform: translate3d(100%, 0,0);
+        @include easeOut();
+
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+    }
+
+    &-branding{
+        
+        background: rgba($primary-color, 0.5);
+        transform: translate3d(-100%, 0,0);
+        @include easeOut();
+
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+
+        .portrait{
+            width: 550px;
+            height: 550px;
+            background: url('../img/Bios.png') center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 1;
+        }
+    }
+
+    .nav-item{
+        transform: translate3d(600px, 0,0);
+        @include easeOut();
+
+        &.show {
+            transform: translate3d(0, 0,0);
+        }
+
+        &.current > a {
+            color:  $secondary-color;
+        }
+    }
+
+    .nav-link{
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        padding: 1rem 0;
+        font-weight: 300;
+        color: set-text-color($primary-color);
+        text-decoration: none;
+        @include easeOut();
+
+        &:hover{
+            color: $secondary-color;
+        }
+    }
+}
+
+
