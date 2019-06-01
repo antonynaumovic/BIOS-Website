@@ -56,7 +56,8 @@ h2 {
   width: 100%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+  z-index: -1; }
 
 .biosLogo {
   width: 50%;
@@ -89,14 +90,14 @@ h2 {
     background-position: 22% 0%; } }
 
 #top, #bottom, #left, #right {
-  background: #fafafa;
+  background: #fff;
   position: fixed;
-  z-index: 10; }
+  z-index: 3; }
 
 #left, #right {
   top: 0;
   bottom: 0;
-  width: 5px; }
+  width: 2px; }
 
 #left {
   left: 0; }
@@ -107,7 +108,7 @@ h2 {
 #top, #bottom {
   left: 0;
   right: 0;
-  height: 5px; }
+  height: 2px; }
 
 #top {
   top: 0; }
@@ -126,7 +127,8 @@ a {
   padding: 10px;
   bottom: 0; }
   .icons a {
-    padding: 0.4rem; }
+    padding: 0.4rem;
+    transition: 0.3s; }
     .icons a:hover {
       color: #ff6600; }
   .icons .icon {
@@ -144,7 +146,7 @@ a {
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
-    background: set-text-color(white);
+    background: #fff;
     transition: all 0.3s ease-out; }
   .menu-btn.close {
     transform: rotate(180deg); }
@@ -162,52 +164,74 @@ a {
   visibility: hidden; }
   .menu.show {
     visibility: visible; }
-  .menu-branding, .menu-nav {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    justify-content: center;
-    float: left;
-    width: 50%;
-    height: 100vh;
-    overflow: hidden; }
-  .menu-nav {
-    margin: 0;
-    padding: 0;
-    background: rgba(242, 242, 242, 0.8);
-    list-style: none;
-    transform: translate3d(100%, 0, 0);
-    transition: all 0.3s ease-out; }
-    .menu-nav.show {
-      transform: translate3d(0, 0, 0); }
-  .menu-branding {
-    background: rgba(255, 255, 255, 0.5);
-    transform: translate3d(-100%, 0, 0);
-    transition: all 0.3s ease-out; }
-    .menu-branding.show {
-      transform: translate3d(0, 0, 0); }
-    .menu-branding .portrait {
-      width: 550px;
-      height: 550px;
-      background: url("../img/Bios.png") center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 1; }
-  .menu .nav-item {
-    transform: translate3d(600px, 0, 0);
-    transition: all 0.3s ease-out; }
-    .menu .nav-item.show {
-      transform: translate3d(0, 0, 0); }
-    .menu .nav-item.current > a {
-      color: #ff6600; }
-  .menu .nav-link {
-    display: inline-block;
-    position: relative;
-    font-size: 30px;
-    padding: 1rem 0;
-    font-weight: 300;
-    color: set-text-color(white);
-    text-decoration: none;
-    transition: all 0.3s ease-out; }
-    .menu .nav-link:hover {
-      color: #ff6600; }
+
+.sidenav {
+  right: 0;
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  background-color: rgba(5, 15, 58, 0.5);
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */ }
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 3rem;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+  text-align: center; }
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #ff6600; }
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px; }
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px; }
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px; }
+  .sidenav a {
+    font-size: 18px; } }
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }
+
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); } }
